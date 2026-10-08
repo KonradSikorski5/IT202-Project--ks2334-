@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Moving On Up</title>
+<link rel="stylesheet" href="project1.css">
+<script src="project1.js"></script>
+</head>
+<body>
+<form id="mouForm" name="mouForm" action="" method="GET" onsubmit="return validateForm();">
+    <h1>Moving On Up</h1>
+
+    <label for="firstName"><strong>Moving Rep's First Name:</strong></label><br>
+    <input type="text" id="firstName" name="firstName" placeholder="Example: John">
+    <span class="required">REQUIRED</span><br>
+
+    <label for="lastName"><strong>Moving Rep's Last Name:</strong></label><br>
+    <input type="text" id="lastName" name="lastName" placeholder="Example: Doe">
+    <span class="required">REQUIRED</span><br>
+
+    <label for="password"><strong>Moving Rep's Password:</strong></label><br>
+    <input type="password" id="password" name="password" placeholder="Example: $LL@9">
+    <span id="eyeIcon" onclick="togglePassword()">&#128065;</span>
+    <span class="required">REQUIRED</span><br>
+
+    <label for="repId"><strong>Moving Rep's ID #:</strong></label><br>
+    <input type="text" id="repId" name="repId" placeholder="Example: 1234">
+    <span class="required">REQUIRED</span><br>
+
+    <label for="phone"><strong>Moving Rep's Phone #:</strong></label><br>
+    <input type="text" id="phone" name="phone" placeholder="Example: 555-555-5555 ext 555">
+    <span class="required">REQUIRED</span><br>
+
+    <label for="email"><strong>Moving Rep's Email:</strong></label><br>
+    <input type="text" id="email" name="email" placeholder="Example: john@LL.com">
+    <span class="required" id="emailRequired">REQUIRED</span><br>
+
+    <input type="checkbox" id="emailConfirm" name="emailConfirm" value="yes" onclick="emailCheck()">
+    <label for="emailConfirm"><strong>Check the box to request an Email Confirmation:</strong></label><br><br>
+
+    <label for="transaction"><strong>Select a Transaction:</strong></label>
+    <select id="transaction" name="transaction">
+        <option value="Search A Moving Representative's Accounts">Search A Moving Representative's Accounts</option>
+        <option value="Book a Client's Moving Event">Book a Client's Moving Event</option>
+        <option value="Cancel A Client's Moving Event">Cancel A Client's Moving Event</option>
+        <option value="Request Moving Services">Request Moving Services</option>
+        <option value="Request Additional Moving Services">Request Additional Moving Services</option>
+        <option value="Create A New Client Account">Create A New Client Account</option>
+    </select>
+
+    <input type="submit" id="submitButton" name="submitButton" value="Submit">
+    <input type="reset" id="resetButton" name="resetButton" value="Reset" onclick="resetForm()">
+</form>
+</body>
+</html>
