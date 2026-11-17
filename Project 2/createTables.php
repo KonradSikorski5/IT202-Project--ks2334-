@@ -146,6 +146,23 @@ $query11 = "INSERT INTO MovingEvent (MovingID, RepID, ClientID, MoveToStreetNumb
 ";
 $insertdata = mysqli_query($con, $query11);
 
+$query12 = "INSERT INTO SpecialInstructions (MovingID, PackingInstructions) VALUES
+('48213', 'Wrap the glass dining table in bubble wrap and place it in the dining room.'),
+('51907', 'Use small boxes for books and stack them in the office.'),
+('60342', 'Bring a piano dolly for the upright piano and place it in the living room.'),
+('72815', 'Pack kitchen dishes in dish pack boxes with paper between each plate.'),
+('39466', 'Disassemble the bunk beds and reassemble them in the upstairs bedroom.'),
+('84150', 'Use wardrobe boxes for hanging clothes and put them in the main bedroom closet.'),
+('25683', 'Cover the leather couch with plastic wrap and place it facing the fireplace.'),
+('93071', 'Pack the flat screen TV in its original box and mount it in the den.'),
+('16529', 'Label every box by room and stack all garage boxes in the garage.'),
+('57348', 'Crate the antique mirror and hang it in the front hallway.'),
+('68204', 'Wrap the patio furniture in moving blankets and leave it on the back deck.'),
+('41976', 'Pack the home office computers in anti static bags and set them up in the office.'),
+('30815', 'Move the washer and dryer last and place them in the basement laundry room.')
+";
+$insertdata = mysqli_query($con, $query12);
+
 echo "<p>Finished. Open printTables.php to check your tables.</p>";
 
 mysqli_close($con);
