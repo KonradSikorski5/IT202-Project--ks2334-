@@ -113,6 +113,22 @@ $query9 = "INSERT INTO RepClient (RepID, ClientID) VALUES
 ";
 $insertdata = mysqli_query($con, $query9);
 
+$query10 = "INSERT INTO ClientInfo (ClientID, ClientStreetNumber, ClientStreetName, ClientCity, ClientState, ClientZip, ClientPhone) VALUES
+('7001', '14', 'Maple Avenue', 'Newark', 'NJ', '07102', '973-555-0101'),
+('7002', '220', 'Oak Street', 'Jersey City', 'NJ', '07302', '201-555-0102'),
+('7003', '9', 'Elm Court', 'Hoboken', 'NJ', '07030', '201 555 0103'),
+('7004', '310', 'Pine Road', 'Montclair', 'NJ', '07042', '973-555-0104'),
+('7005', '57', 'Cedar Lane', 'Paterson', 'NJ', '07501', '973 555 0105'),
+('7006', '1200', 'River Drive', 'Clifton', 'NJ', '07013', '973-555-0106'),
+('7007', '45', 'Park Place', 'Morristown', 'NJ', '07960', '862-555-0107'),
+('7008', '8', 'Spruce Street', 'Princeton', 'NJ', '08540', '609-555-0108'),
+('7009', '76', 'Main Street', 'Trenton', 'NJ', '08608', '609 555 0109'),
+('7010', '501', 'Broad Street', 'Elizabeth', 'NJ', '07201', '908-555-0110'),
+('7011', '33', 'Hill Road', 'Edison', 'NJ', '08817', '732-555-0111'),
+('7012', '19', 'Lake Drive', 'Wayne', 'NJ', '07470', '973-555-0112')
+";
+$insertdata = mysqli_query($con, $query10);
+
 echo "<p>Finished. Open printTables.php to check your tables.</p>";
 
 mysqli_close($con);
