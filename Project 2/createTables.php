@@ -129,6 +129,23 @@ $query10 = "INSERT INTO ClientInfo (ClientID, ClientStreetNumber, ClientStreetNa
 ";
 $insertdata = mysqli_query($con, $query10);
 
+$query11 = "INSERT INTO MovingEvent (MovingID, RepID, ClientID, MoveToStreetNumber, MoveToStreetName, MoveToCity, MoveToState, MoveToZip, MovingDate, TotalWeight, MilesForMove, TotalCost) VALUES
+('48213', '1234', '7001', '88', 'Ocean Avenue', 'Long Branch', 'NJ', '07740', '12/05/2026', '2500 lbs', '35', '$1250.00'),
+('51907', '2345', '7001', '5', 'Harbor Way', 'Asbury Park', 'NJ', '07712', '01/10/2027', '800 lbs', '40', '$600.00'),
+('60342', '1234', '7002', '410', 'Sunset Boulevard', 'Cherry Hill', 'NJ', '08002', '12/12/2026', '3200 lbs', '90', '$2100.00'),
+('72815', '2345', '7003', '27', 'Willow Way', 'Summit', 'NJ', '07901', '12/19/2026', '1500 lbs', '20', '$850.00'),
+('39466', '3456', '7004', '602', 'Bay Street', 'Toms River', 'NJ', '08753', '01/03/2027', '4100 lbs', '75', '$2600.00'),
+('84150', '4567', '7005', '15', 'Garden Court', 'Fort Lee', 'NJ', '07024', '01/09/2027', '1800 lbs', '15', '$900.00'),
+('25683', '4567', '7006', '300', 'Valley Road', 'Wayne', 'NJ', '07470', '01/16/2027', '2700 lbs', '10', '$1100.00'),
+('93071', '5678', '7007', '72', 'Ridge Road', 'Parsippany', 'NJ', '07054', '01/23/2027', '2200 lbs', '12', '$1000.00'),
+('16529', '6789', '7008', '140', 'College Avenue', 'New Brunswick', 'NJ', '08901', '02/06/2027', '1200 lbs', '18', '$750.00'),
+('57348', '7890', '7009', '11', 'Shore Road', 'Ocean City', 'NJ', '08226', '02/13/2027', '3600 lbs', '95', '$2400.00'),
+('68204', '8901', '7010', '230', 'North Avenue', 'Westfield', 'NJ', '07090', '02/20/2027', '2000 lbs', '8', '$950.00'),
+('41976', '9012', '7011', '64', 'Church Street', 'Flemington', 'NJ', '08822', '02/27/2027', '2900 lbs', '30', '$1500.00'),
+('30815', '1357', '7012', '502', 'Highland Avenue', 'Bloomfield', 'NJ', '07003', '03/06/2027', '1600 lbs', '14', '$800.00')
+";
+$insertdata = mysqli_query($con, $query11);
+
 echo "<p>Finished. Open printTables.php to check your tables.</p>";
 
 mysqli_close($con);
