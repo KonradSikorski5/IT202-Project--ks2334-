@@ -66,6 +66,20 @@ $query6 = "CREATE TABLE SpecialInstructions (
 )";
 $createtable = mysqli_query($con, $query6);
 
+$query7 = "INSERT INTO MovingRep (RepID, RepFirstName, RepLastName, RepPassword, RepPhone, RepEmail) VALUES
+('1234', 'John', 'Doe', '!Abc@12', '555-555-5555 ext 555', 'john@ll.com'),
+('2345', 'Jane', 'Smith', '#Mov!7', '201-555-1111 ext 101', 'jane@mou.com'),
+('3456', 'Barry', 'Box', '@Box#99', '973-555-2222 ext 22', 'barry@mou.com'),
+('4567', 'Maria', 'Lopez', '!Van&5', '732-555-3333 ext 3', 'maria@mou.org'),
+('5678', 'Tom', 'Brown', '%Truk&1', '908-555-4444 ext 404', 'tom@mou.net'),
+('6789', 'Linda', 'Green', '&Lift*2', '856-555-5555 ext 55', 'linda@mou.com'),
+('7890', 'Kevin', 'White', '*Pack^3', '609-555-6666 ext 6', 'kevin@mou.info'),
+('8901', 'Sara', 'Black', '^Load!4', '551-555-7777 ext 707', 'sara@mou.com'),
+('9012', 'Mike', 'Gray', '%Haul@8', '862-555-8888 ext 88', 'mike@mou.com'),
+('1357', 'Anna', 'Reed', '#Ship@6', '848-555-9999 ext 9', 'anna@mou.com')
+";
+$insertdata = mysqli_query($con, $query7);
+
 echo "<p>Finished. Open printTables.php to check your tables.</p>";
 
 mysqli_close($con);
