@@ -80,6 +80,39 @@ $query7 = "INSERT INTO MovingRep (RepID, RepFirstName, RepLastName, RepPassword,
 ";
 $insertdata = mysqli_query($con, $query7);
 
+$query8 = "INSERT INTO Client (ClientID, ClientFirstName, ClientLastName) VALUES
+('7001', 'Daniel', 'Okoro'),
+('7002', 'Priya', 'Shah'),
+('7003', 'Marcus', 'Bell'),
+('7004', 'Elena', 'Rossi'),
+('7005', 'Owen', 'Hart'),
+('7006', 'Grace', 'Kim'),
+('7007', 'Luis', 'Ortega'),
+('7008', 'Hannah', 'Weiss'),
+('7009', 'Samuel', 'Grant'),
+('7010', 'Nina', 'Patel'),
+('7011', 'Victor', 'Chen'),
+('7012', 'Rachel', 'Moore')
+";
+$insertdata = mysqli_query($con, $query8);
+
+$query9 = "INSERT INTO RepClient (RepID, ClientID) VALUES
+('1234', '7001'),
+('1234', '7002'),
+('2345', '7001'),
+('2345', '7003'),
+('3456', '7004'),
+('4567', '7005'),
+('4567', '7006'),
+('5678', '7007'),
+('6789', '7008'),
+('7890', '7009'),
+('8901', '7010'),
+('9012', '7011'),
+('1357', '7012')
+";
+$insertdata = mysqli_query($con, $query9);
+
 echo "<p>Finished. Open printTables.php to check your tables.</p>";
 
 mysqli_close($con);
