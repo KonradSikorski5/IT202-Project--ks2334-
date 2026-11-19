@@ -1,0 +1,127 @@
+function togglePassword() {
+    var passwordBox = document.getElementById("password");
+    var eye = document.getElementById("eyeIcon");
+
+    if (passwordBox.type == "password") {
+        passwordBox.type = "text";
+        eye.innerHTML = "&#128584;";
+    }
+    else {
+        passwordBox.type = "password";
+        eye.innerHTML = "&#128065;";
+    }
+}
+
+function emailCheck() {
+    var checked = document.getElementById("emailConfirm").checked;
+
+    if (checked) {
+        document.getElementById("emailRequired").style.visibility = "visible";
+    }
+    else {
+        document.getElementById("emailRequired").style.visibility = "hidden";
+    }
+}
+
+function resetForm() {
+    document.getElementById("password").type = "password";
+    document.getElementById("eyeIcon").innerHTML = "&#128065;";
+    document.getElementById("emailRequired").style.visibility = "hidden";
+}
+
+function showError(fieldId, message) {
+    alert(message);
+    var field = document.getElementById(fieldId);
+    field.focus();
+    field.select();
+}
+
+// VALIDATE
+function validateForm() {
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var password = document.getElementById("password").value;
+    var repId = document.getElementById("repId").value;
+    var phone = document.getElementById("phone").value;
+    var email = document.getElementById("email").value;
+    var emailConfirm = document.getElementById("emailConfirm").checked;
+
+    var namePattern = /^[A-Za-z]+([' -][A-Za-z]+)*$/;
+    var idPattern = /^[0-9]{4}$/;
+    var phonePattern = /^[0-9]{3}[- ][0-9]{3}[- ][0-9]{4} ext [0-9]{1,5}$/i;
+    var emailPattern = /^[A-Za-z0-9._-]+@[A-Za-z0-9-]+\.[A-Za-z]{2,5}$/;
+
+    if (firstName == "") {
+        showError("firstName", "Moving Representative's First Name is required. Please enter your first name.");
+        return false;
+    }
+    if (!namePattern.test(firstName)) {
+        showError("firstName", "Moving Representative's First Name should contain only letters (a hyphen, apostrophe or single space between letters is allowed). Please re-enter.");
+        return false;
+    }
+
+    if (lastName == "") {
+        showError("lastName", "Moving Representative's Last Name is required. Please enter your last name.");
+        return false;
+    }
+    if (!namePattern.test(lastName)) {
+        showError("lastName", "Moving Representative's Last Name should contain only letters (a hyphen, apostrophe or single space between letters is allowed). Please re-enter.");
+        return false;
+    }
+
+    if (password == "") {
+        showError("password", "Moving Representative's Password is required. Please enter your password.");
+        return false;
+    }
+    if (password.length > 7) {
+        showError("password", "Moving Representative's Password can be a maximum of 7 characters. Please re-enter.");
+        return false;
+    }
+    if (!/^[!@#$%^&*]/.test(password)) {
+        showError("password", "Moving Representative's Password must START with a special character (! @ # $ % ^ & *). Please re-enter.");
+        return false;
+    }
+    if (!/[A-Z]/.test(password)) {
+        showError("password", "Moving Representative's Password must contain at least 1 uppercase letter. Please re-enter.");
+        return false;
+    }
+    if (!/[0-9]/.test(password)) {
+        showError("password", "Moving Representative's Password must contain at least 1 number. Please re-enter.");
+        return false;
+    }
+    if (!/^[A-Za-z0-9!@#$%^&*]+$/.test(password)) {
+        showError("password", "Moving Representative's Password can only contain letters, numbers and the special characters ! @ # $ % ^ & * (no spaces). Please re-enter.");
+        return false;
+    }
+
+    if (repId == "") {
+        showError("repId", "Moving Representative's ID is required. Please enter your ID.");
+        return false;
+    }
+    if (!idPattern.test(repId)) {
+        showError("repId", "Moving Representative's ID should consist of only numbers and be 4 digits in length. Please re-enter.");
+        return false;
+    }
+
+    if (phone == "") {
+        showError("phone", "Moving Representative's Phone # is required. Please enter your phone number.");
+        return false;
+    }
+    if (!phonePattern.test(phone)) {
+        showError("phone", "Moving Representative's Phone # should be 10 digits separated by dashes or spaces, followed by ext and your extension. Example: 555-555-5555 ext 555. Please re-enter.");
+        return false;
+    }
+
+    if (emailConfirm) {
+        if (email == "") {
+            showError("email", "You requested an Email Confirmation, so Moving Representative's Email is required. Please enter your email.");
+            return false;
+        }
+        if (!emailPattern.test(email)) {
+            showError("email", "Moving Representative's Email must contain an @ followed by a domain, a period and a 2 to 5 letter ending. Example: john@LL.com. Please re-enter.");
+            return false;
+        }
+    }
+
+    return true;
+}
