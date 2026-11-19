@@ -129,3 +129,71 @@ function validateForm() {
 
     return true;
 }
+
+function checkField(fieldId, pattern, fieldName, help) {
+    var value = document.getElementById(fieldId).value;
+
+    if (value == "") {
+        showError(fieldId, fieldName + " is required. Please enter the " + fieldName + ".");
+        return false;
+    }
+    if (!pattern.test(value)) {
+        showError(fieldId, fieldName + " is not valid. " + help + " Please re-enter.");
+        return false;
+    }
+    return true;
+}
+
+// VALIDATE CLIENT
+function validateClient() {
+    if (!checkField("clientFirstName", /^[A-Za-z]+([' -][A-Za-z]+)*$/, "Client's First Name", "It should contain only letters (a hyphen, apostrophe or single space between letters is allowed).")) {
+        return false;
+    }
+    if (!checkField("clientLastName", /^[A-Za-z]+([' -][A-Za-z]+)*$/, "Client's Last Name", "It should contain only letters (a hyphen, apostrophe or single space between letters is allowed).")) {
+        return false;
+    }
+    if (!checkField("clientId", /^[0-9]{4}$/, "Client ID", "It should consist of only numbers and be 4 digits in length. Example: 7001.")) {
+        return false;
+    }
+    return true;
+}
+
+// VALIDATE ADDRESS
+function checkAddress() {
+    if (!checkField("streetNumber", /^[0-9]{1,6}$/, "Street Number", "It should be only numbers (up to 6 digits). Example: 88.")) {
+        return false;
+    }
+    if (!checkField("streetName", /^[A-Za-z0-9][A-Za-z0-9 .'-]{1,39}$/, "Street Name", "It should be letters, numbers and spaces (up to 40 characters). Example: Ocean Avenue.")) {
+        return false;
+    }
+    if (!checkField("city", /^[A-Za-z][A-Za-z .'-]{1,29}$/, "City", "It should be letters and spaces only (up to 30 characters). Example: Newark.")) {
+        return false;
+    }
+    if (!checkField("state", /^[A-Za-z]{2}$/, "State", "It should be the 2 letter state code. Example: NJ.")) {
+        return false;
+    }
+    if (!checkField("zip", /^[0-9]{5}$/, "Zip Code", "It should be exactly 5 digits. Example: 07102.")) {
+        return false;
+    }
+    return true;
+}
+
+// VALIDATE BOOKING
+function validateBook() {
+    if (!checkAddress()) {
+        return false;
+    }
+    if (!checkField("movingDate", /^((0?[1-9]|1[0-2])[\/-](0?[1-9]|[12][0-9]|3[01])[\/-]([0-9]{2}|[0-9]{4})|(January|February|March|April|May|June|July|August|September|October|November|December) (0?[1-9]|[12][0-9]|3[01]), [0-9]{4})$/, "Moving Date", "Examples: 12/05/2026, 12/05/26, 12-05-2026 or December 5, 2026.")) {
+        return false;
+    }
+    if (!checkField("weight", /^[0-9]{1,6}( ?(lbs|lb|kg))?$/i, "Total Weight", "It should be a number with an optional lbs or kg. Example: 2500 lbs.")) {
+        return false;
+    }
+    if (!checkField("miles", /^[0-9]{1,5}(\.[0-9]{1,2})?$/, "Miles For Move", "It should be a number. Example: 35 or 35.5.")) {
+        return false;
+    }
+    if (!checkField("cost", /^\$?[0-9]{1,7}(\.[0-9]{2})?$/, "Total Cost", "It should be a dollar amount with no commas. Example: $1250.00.")) {
+        return false;
+    }
+    return confirm("Do you want to continue booking the moving event?");
+}
