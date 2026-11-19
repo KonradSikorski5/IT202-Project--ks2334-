@@ -48,7 +48,7 @@ function validateForm() {
 
     var namePattern = /^[A-Za-z]+([' -][A-Za-z]+)*$/;
     var idPattern = /^[0-9]{4}$/;
-    var phonePattern = /^[0-9]{3}[- ][0-9]{3}[- ][0-9]{4} ext [0-9]{1,5}$/i;
+    var phonePattern = /^([0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3} [0-9]{3} [0-9]{4}) ext [0-9]{1,5}$/i;
     var emailPattern = /^[A-Za-z0-9._-]+@[A-Za-z0-9-]+\.[A-Za-z]{2,5}$/;
 
     if (firstName == "") {
@@ -85,6 +85,10 @@ function validateForm() {
         showError("password", "Moving Representative's Password must contain at least 1 uppercase letter. Please re-enter.");
         return false;
     }
+    if (!/[!@#$%^&*]/.test(password.substring(1))) {
+        showError("password", "Moving Representative's Password must contain at least 1 more special character (! @ # $ % ^ & *) after the first one. Please re-enter.");
+        return false;
+    }
     if (!/[0-9]/.test(password)) {
         showError("password", "Moving Representative's Password must contain at least 1 number. Please re-enter.");
         return false;
@@ -108,7 +112,7 @@ function validateForm() {
         return false;
     }
     if (!phonePattern.test(phone)) {
-        showError("phone", "Moving Representative's Phone # should be 10 digits separated by dashes or spaces, followed by ext and your extension. Example: 555-555-5555 ext 555. Please re-enter.");
+        showError("phone", "Moving Representative's Phone # should be 10 digits separated by dashes OR spaces (not both), followed by ext and your extension. Example: 555-555-5555 ext 555. Please re-enter.");
         return false;
     }
 
