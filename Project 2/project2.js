@@ -197,3 +197,14 @@ function validateBook() {
     }
     return confirm("Do you want to continue booking the moving event?");
 }
+
+// VALIDATE CLIENT INFORMATION
+function validateClientInfo() {
+    if (!checkAddress()) {
+        return false;
+    }
+    if (!checkField("clientPhone", /^([0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{3} [0-9]{3} [0-9]{4})$/, "Client Phone Number", "It should be 10 digits separated by dashes OR spaces (not both). Example: 973-555-0101.")) {
+        return false;
+    }
+    return true;
+}
