@@ -236,3 +236,14 @@ function validateUpdate() {
     }
     return confirm("Are you sure you want to update the client's additional special instructions?");
 }
+
+// VALIDATE CANCEL
+function validateCancel() {
+    if (!checkField("clientId", /^[0-9]{4}$/, "Client ID", "It should consist of only numbers and be 4 digits in length. Example: 7001.")) {
+        return false;
+    }
+    if (!checkField("movingId", /^[0-9]{5}$/, "Moving ID", "It should consist of only numbers and be 5 digits in length. Example: 48213.")) {
+        return false;
+    }
+    return true;
+}
