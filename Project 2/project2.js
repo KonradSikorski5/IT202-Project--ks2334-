@@ -208,3 +208,31 @@ function validateClientInfo() {
     }
     return true;
 }
+
+// VALIDATE SPECIAL INSTRUCTIONS
+function checkInstructions() {
+    if (!checkField("clientId", /^[0-9]{4}$/, "Client ID", "It should consist of only numbers and be 4 digits in length. Example: 7001.")) {
+        return false;
+    }
+    if (!checkField("movingId", /^[0-9]{5}$/, "Moving ID", "It should consist of only numbers and be 5 digits in length. Example: 48213.")) {
+        return false;
+    }
+    if (!checkField("instructions", /^[A-Za-z0-9 .,!?'&()\/\n\r-]{5,500}$/, "Special Instructions", "It should be 5 to 500 characters using letters, numbers, spaces and basic punctuation.")) {
+        return false;
+    }
+    return true;
+}
+
+function validateInstructions() {
+    if (!checkInstructions()) {
+        return false;
+    }
+    return confirm("Do you wish to request special instructions for this move?");
+}
+
+function validateUpdate() {
+    if (!checkInstructions()) {
+        return false;
+    }
+    return confirm("Are you sure you want to update the client's additional special instructions?");
+}
